@@ -1,0 +1,1 @@
+    // Disable Backbone.history, perhaps temporarily. Not useful in a real app,    // but possibly useful for unit testing Routers.    stop: function() {      Backbone.$(window).off('popstate', this.checkUrl).off('hashchange', this.checkUrl);      clearInterval(this._checkUrlInterval);      History.started = false;    }

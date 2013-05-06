@@ -1,0 +1,1 @@
+    // Add a route to be tested when the fragment changes. Routes added later    // may override previous routes.    route: function(route, callback) {      this.handlers.unshift({route: route, callback: callback});    }
