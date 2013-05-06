@@ -1,0 +1,1 @@
+Backbone拆分打包============为什么会有这个项目？1. 在无线端，尤其是在我朝坑爹的2G网络下，真可谓是字字如金。2. Backbone.js的依赖库Underscore.js的API和项目中引入的其它API有重复。故，我拆分了Backbone.js及其依赖库Underscore.js的代码，使得在实际项目中可以定制精简版的代码。如何使用？设置Config目录下对应的配置，运行build.js即可。环境依赖：node.js
