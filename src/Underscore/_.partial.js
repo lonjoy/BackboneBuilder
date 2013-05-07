@@ -1,0 +1,1 @@
+  // Partially apply a function by creating a version that has had some of its  // arguments pre-filled, without changing its dynamic `this` context.  _.partial = function(func) {    var args = slice.call(arguments, 1);    return function() {      return func.apply(this, args.concat(slice.call(arguments)));    };  };

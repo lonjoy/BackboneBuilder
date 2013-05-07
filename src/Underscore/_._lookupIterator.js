@@ -1,0 +1,1 @@
+  <$= Include("src/Underscore/_.isFunction.js") $>  // An internal function to generate lookup iterators.  var lookupIterator = function(value) {    return _.isFunction(value) ? value : function(obj){ return obj[value]; };  };

@@ -1,0 +1,1 @@
+  <$= Include("src/Underscore/_.where.js") $>  // Convenience version of a common use case of `find`: getting the first object  // containing specific `key:value` pairs.  _.findWhere = function(obj, attrs) {    return _.where(obj, attrs, true);  };

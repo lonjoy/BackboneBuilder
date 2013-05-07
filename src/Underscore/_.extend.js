@@ -1,0 +1,1 @@
+  // Extend a given object with all the properties in passed-in object(s).  _.extend = function(obj) {    each(slice.call(arguments, 1), function(source) {      if (source) {        for (var prop in source) {          obj[prop] = source[prop];        }      }    });    return obj;  };

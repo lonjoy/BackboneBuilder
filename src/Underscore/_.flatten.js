@@ -1,0 +1,1 @@
+  <$= Include("src/Underscore/_._flatten.js") $>  // Return a completely flattened version of an array.  _.flatten = function(array, shallow) {    return flatten(array, shallow, []);  };

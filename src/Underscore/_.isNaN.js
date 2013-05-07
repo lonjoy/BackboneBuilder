@@ -1,0 +1,1 @@
+  <$= Include("src/Underscore/_.isNumber.js") $>  // Is the given value `NaN`? (NaN is the only number which does not equal itself).  _.isNaN = function(obj) {    return _.isNumber(obj) && obj != +obj;  };

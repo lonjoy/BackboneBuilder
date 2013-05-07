@@ -1,0 +1,1 @@
+  // Run a function **n** times.  _.times = function(n, iterator, context) {    var accum = Array(n);    for (var i = 0; i < n; i++) accum[i] = iterator.call(context, i);    return accum;  };

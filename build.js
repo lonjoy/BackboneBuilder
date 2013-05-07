@@ -10,7 +10,7 @@ main = function(){
         var result;
         if(err){console.log(err);return;}
 
-        result = new Parser(data.toString());
+        result = new Parser(data.toString(),Config.MainFile);
         fs.writeFile('pack.js',result.render(),function(err){
             if(err){console.log(err);return;}
         });

@@ -1,0 +1,1 @@
+  // Keep the identity function around for default iterators.  _.identity = function(value) {    return value;  };
