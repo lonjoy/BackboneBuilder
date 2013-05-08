@@ -343,7 +343,7 @@
         <$= Include("src/Underscore/_.result.js") $>
     <$ } $>
     
-        <$= Include("src/Underscore/_.mixin.js") $>
+        
    
     <$ if("src/Underscore/_.uniqueId.js" in Config.Backbone.Underscore.Require){ $>
         <$= Include("src/Underscore/_.uniqueId.js") $>
@@ -366,32 +366,9 @@
   // can be used OO-style. This wrapper holds altered versions of all the
   // underscore functions. Wrapped objects may be chained.
 
-  // Helper function to continue chaining intermediate results.
-  var result = function(obj) {
-    return this._chain ? _(obj).chain() : obj;
-  };
-
-  // Add all of the Underscore functions to the wrapper object.
-  _.mixin(_);
-
-  // Add all mutator Array functions to the wrapper.
-  each(['pop', 'push', 'reverse', 'shift', 'sort', 'splice', 'unshift'], function(name) {
-    var method = ArrayProto[name];
-    _.prototype[name] = function() {
-      var obj = this._wrapped;
-      method.apply(obj, arguments);
-      if ((name == 'shift' || name == 'splice') && obj.length === 0) delete obj[0];
-      return result.call(this, obj);
-    };
-  });
-
-  // Add all accessor Array functions to the wrapper.
-  each(['concat', 'join', 'slice'], function(name) {
-    var method = ArrayProto[name];
-    _.prototype[name] = function() {
-      return result.call(this, method.apply(this._wrapped, arguments));
-    };
-  });
+  <$ if("src/Underscore/_._normalMethods.js" in Config.Backbone.Underscore.Require){ $>
+        <$= Include("src/Underscore/_._normalMethods.js") $>
+  <$ } $>
 
   _.extend(_.prototype, {
 
