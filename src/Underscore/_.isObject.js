@@ -1,1 +1,1 @@
-  // Is a given variable an object?  _.isObject = function(obj) {    return obj === Object(obj);  };
+  <$ if("Zepto" in Config.Backbone.Library){ $>        _.isObject = <$= Config.Backbone.Library.Zepto.NameSpace $>.isObject;   <$ }else{ $>      // Is a given variable an object?      _.isObject = function(obj) {        return obj === Object(obj);      };   <$ } $>

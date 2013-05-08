@@ -1,1 +1,1 @@
-  // Is a given value an array?  // Delegates to ECMA5's native Array.isArray  _.isArray = nativeIsArray || function(obj) {    return toString.call(obj) == '[object Array]';  };
+  // Is a given value an array?  // Delegates to ECMA5's native Array.isArray  <$ if("Zepto" in Config.Backbone.Library){ $>  _.isArray = <$= Config.Backbone.Library.Zepto.NameSpace $>.isArray;  <$ }else{ $>  _.isArray = nativeIsArray || function(obj) {    return toString.call(obj) == '[object Array]';  };  <$ } $>

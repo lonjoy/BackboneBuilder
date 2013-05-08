@@ -31,17 +31,19 @@
   // All **ECMAScript 5** native function implementations that we hope to use
   // are declared here.
   var
-    nativeForEach      = ArrayProto.forEach,
-    nativeMap          = ArrayProto.map,
-    nativeReduce       = ArrayProto.reduce,
-    nativeReduceRight  = ArrayProto.reduceRight,
-    nativeFilter       = ArrayProto.filter,
-    nativeEvery        = ArrayProto.every,
-    nativeSome         = ArrayProto.some,
-    nativeIndexOf      = ArrayProto.indexOf,
-    nativeLastIndexOf  = ArrayProto.lastIndexOf,
-    nativeIsArray      = Array.isArray,
-    nativeKeys         = Object.keys,
+    <$ if(("src/Underscore/_.each.js" in Config.Backbone.Underscore.Require) === false){ $><$ if(("Zepto" in Config.Backbone.Library) === false){ $>nativeForEach      = ArrayProto.forEach,<$ } $><$ } $>
+    <$ if(("src/Underscore/_.map.js" in Config.Backbone.Underscore.Require) === false){ $><$ if(("Zepto" in Config.Backbone.Library) === false){ $>nativeMap          = ArrayProto.map,<$ } $><$ } $>
+    
+    <$ if(("src/Underscore/_.reduce.js" in Config.Backbone.Underscore.Require)){ $>nativeReduce       = ArrayProto.reduce,<$ } $>
+    <$ if(("src/Underscore/_.reduceRight.js" in Config.Backbone.Underscore.Require)){ $>nativeReduceRight  = ArrayProto.reduceRight,<$ } $>
+    <$ if(("src/Underscore/_.filter.js" in Config.Backbone.Underscore.Require)){ $>nativeFilter       = ArrayProto.filter,<$ } $>
+    <$ if(("src/Underscore/_.every.js" in Config.Backbone.Underscore.Require)){ $>nativeEvery        = ArrayProto.every,<$ } $>
+    <$ if(("src/Underscore/_.some.js" in Config.Backbone.Underscore.Require)){ $>nativeSome         = ArrayProto.some,<$ } $>
+    <$ if(("src/Underscore/_.indexOf.js" in Config.Backbone.Underscore.Require)){ $>nativeIndexOf      = ArrayProto.indexOf,<$ } $>
+    <$ if(("src/Underscore/_.lastIndexOf.js" in Config.Backbone.Underscore.Require)){ $>nativeLastIndexOf  = ArrayProto.lastIndexOf,<$ } $>
+    <$ if(("src/Underscore/_.isArray.js" in Config.Backbone.Underscore.Require)){ $>nativeIsArray      = Array.isArray,<$ } $>
+    <$ if(("src/Underscore/_.keys.js" in Config.Backbone.Underscore.Require)){ $>nativeKeys         = Object.keys,<$ } $>
+
     nativeBind         = FuncProto.bind;
 
   // Create a safe reference to the Underscore object for use below.
@@ -51,19 +53,24 @@
     this._wrapped = obj;
   };
 
-  // Export the Underscore object for **Node.js**, with
-  // backwards-compatibility for the old `require()` API. If we're in
-  // the browser, add `_` as a global object via a string identifier,
-  // for Closure Compiler "advanced" mode.
-  if (typeof exports !== 'undefined') {
-    if (typeof module !== 'undefined' && module.exports) {
-      exports = module.exports = _;
-    }
-    exports._ = _;
-  } else {
-    root._ = _;
-  }
 
+  <$ if(Config.Backbone.OnlyBrowser){ $>
+        root._ = _;
+  <$ }else{ $>
+      // Export the Underscore object for **Node.js**, with
+      // backwards-compatibility for the old `require()` API. If we're in
+      // the browser, add `_` as a global object via a string identifier,
+      // for Closure Compiler "advanced" mode.
+  
+      if (typeof exports !== 'undefined') {
+        if (typeof module !== 'undefined' && module.exports) {
+          exports = module.exports = _;
+        }
+        exports._ = _;
+      } else {
+        root._ = _;
+      }
+  <$ } $>
   // Current version.
   _.VERSION = '1.4.4';
 
@@ -77,11 +84,7 @@
     <$ if("src/Underscore/_.map.js" in Config.Backbone.Underscore.Require){ $>
         <$= Include("src/Underscore/_.map.js") $>
     <$ } $>
-    
 
-  
-
-  var reduceError = 'Reduce of empty array with no initial value';
     <$ if("src/Underscore/_.reduce.js" in Config.Backbone.Underscore.Require){ $>
         <$= Include("src/Underscore/_.reduce.js") $>
     <$ } $>

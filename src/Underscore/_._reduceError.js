@@ -1,0 +1,1 @@
+var reduceError = 'Reduce of empty array with no initial value';
