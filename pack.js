@@ -88,23 +88,9 @@
     
     
     
-            // Keep the identity function around for default iterators.
-  _.identity = function(value) {
-    return value;
-  };
-  // Determine if at least one element in the object matches a truth test.
-  // Delegates to **ECMAScript 5**'s native `some` if available.
-  // Aliased as `any`.
-  var any = _.some = _.any = function(obj, iterator, context) {
-    iterator || (iterator = _.identity);
-    var result = false;
-    if (obj == null) return result;
-    if (nativeSome && obj.some === nativeSome) return obj.some(iterator, context);
-    each(obj, function(value, index, list) {
-      if (result || (result = iterator.call(context, value, index, list))) return breaker;
-    });
-    return !!result;
-  };
+          
+    var any = _.some = _.any = nativeSome;
+  
     
     
     
@@ -145,16 +131,9 @@
   // Function (ahem) Functions
       // ------------------
     
-          // Create a function bound to a given object (assigning `this`, and arguments,
-  // optionally). Delegates to **ECMAScript 5**'s native `Function.bind` if
-  // available.
-  _.bind = function(func, context) {
-    if (func.bind === nativeBind && nativeBind) return nativeBind.apply(func, slice.call(arguments, 1));
-    var args = slice.call(arguments, 2);
-    return function() {
-      return func.apply(context, args.concat(slice.call(arguments)));
-    };
-  };
+          
+    _.bind = nativeBind;
+  
     
     
     
@@ -1448,12 +1427,13 @@
     
     
     _.bindAll(this, 'checkUrl');
-
-    // Ensure that `History` can be used outside of the browser.
-    if (typeof window !== 'undefined') {
+    
+    
+    
+    
       this.location = window.location;
       this.history = window.history;
-    }
+    
   };
 
   // Cached regex for stripping a leading hash/slash and trailing space.
