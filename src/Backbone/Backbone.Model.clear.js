@@ -1,1 +1,1 @@
-    // Clear all attributes on the model, firing `"change"`.    clear: function(options) {      var attrs = {};      for (var key in this.attributes) attrs[key] = void 0;      return this.set(attrs, _.extend({}, options, {unset: true}));    }
+    <$ Require("src/Backbone/Backbone.Model.set.js") $>    // Clear all attributes on the model, firing `"change"`.    clear: function(options) {      var attrs = {};      for (var key in this.attributes) attrs[key] = void 0;      return this.set(attrs, _.extend({}, options, {unset: true}));    }
