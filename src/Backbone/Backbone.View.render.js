@@ -1,0 +1,1 @@
+    // **render** is the core function that your view should override, in order    // to populate its element (`this.el`), with the appropriate HTML. The    // convention is for **render** to always return `this`.    render: function() {      return this;    }

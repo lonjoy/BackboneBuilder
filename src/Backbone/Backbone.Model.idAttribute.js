@@ -1,0 +1,1 @@
+    // The default name for the JSON `id` attribute is `"id"`. MongoDB and    // CouchDB users may want to set this to `"_id"`.    idAttribute: 'id'

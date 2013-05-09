@@ -1,0 +1,1 @@
+    // Create a new model with identical attributes to this one.    clone: function() {      return new this.constructor(this.attributes);    }

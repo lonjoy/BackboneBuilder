@@ -1,0 +1,1 @@
+    $: function(selector) {      return this.$el.find(selector);    }

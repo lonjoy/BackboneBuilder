@@ -1,0 +1,1 @@
+    // Check if the model is currently in a valid state.    isValid: function(options) {      return this._validate({}, _.extend(options || {}, { validate: true }));    }

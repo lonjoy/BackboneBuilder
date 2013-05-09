@@ -1,0 +1,1 @@
+    // A hash of attributes whose current and previous value differ.    changed: null

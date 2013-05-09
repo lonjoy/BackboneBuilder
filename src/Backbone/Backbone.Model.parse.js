@@ -1,0 +1,1 @@
+    // **parse** converts a response into the hash of attributes to be `set` on    // the model. The default implementation is just to pass the response along.    parse: function(resp, options) {      return resp;    }

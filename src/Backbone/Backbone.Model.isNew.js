@@ -1,0 +1,1 @@
+    // A model is new if it has never been saved to the server, and lacks an id.    isNew: function() {      return this.id == null;    }

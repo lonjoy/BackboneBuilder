@@ -1,0 +1,1 @@
+    // Return a copy of the model's `attributes` object.    toJSON: function(options) {      return _.clone(this.attributes);    }

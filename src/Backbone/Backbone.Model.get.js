@@ -1,0 +1,1 @@
+    // Get the value of an attribute.    get: function(attr) {      return this.attributes[attr];    }

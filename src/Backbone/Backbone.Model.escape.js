@@ -1,0 +1,1 @@
+    // Get the HTML-escaped value of an attribute.    escape: function(attr) {      return _.escape(this.get(attr));    }
