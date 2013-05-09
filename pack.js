@@ -790,6 +790,7 @@
 
         // A hash of attributes whose current and previous value differ.
     changed: null,
+    
     // Return an object containing all the attributes that have changed, or
     // false if there are no changed attributes. Useful for determining what
     // parts of a view need to be updated and/or what attributes need to be
@@ -806,6 +807,7 @@
       }
       return changed;
     },
+    
     // Clear all attributes on the model, firing `"change"`.
     clear: function(options) {
       var attrs = {};
@@ -816,6 +818,8 @@
     clone: function() {
       return new this.constructor(this.attributes);
     },
+    
+    
     // If `wait: true` is passed, waits for the server to respond before removal.
     destroy: function(options) {
       options = options ? _.clone(options) : {};
@@ -846,6 +850,9 @@
     escape: function(attr) {
       return _.escape(this.get(attr));
     },
+    
+    
+    
     // Fetch the model from the server. If the server's representation of the
     // model differs from its current attributes, they will be overridden,
     // triggering a `"change"` event.
@@ -866,6 +873,7 @@
     get: function(attr) {
       return this.attributes[attr];
     },
+    
     // Returns `true` if the attribute contains a value that is not null
     // or undefined.
     has: function(attr) {
@@ -887,6 +895,7 @@
     isNew: function() {
       return this.id == null;
     },
+    
     // Check if the model is currently in a valid state.
     isValid: function(options) {
       return this._validate({}, _.extend(options || {}, { validate: true }));
@@ -907,6 +916,9 @@
     previousAttributes: function() {
       return _.clone(this._previousAttributes);
     },
+    
+    
+    
     // Set a hash of model attributes, and sync the model to the server.
     // If the server returns an attributes hash that differs, the model's
     // state will be `set` again.
@@ -961,6 +973,7 @@
 
       return xhr;
     },
+    
     // Set a hash of model attributes on the object, firing `"change"`. This is
     // the core primitive operation of a model, updating the data and notifying
     // anyone who needs to know about the change in state. The heart of the beast.
@@ -1039,11 +1052,13 @@
     toJSON: function(options) {
       return _.clone(this.attributes);
     },
+    
     // Remove an attribute from the model, firing `"change"`. `unset` is a noop
     // if the attribute doesn't exist.
     unset: function(attr, options) {
       return this.set(attr, void 0, _.extend({}, options, {unset: true}));
     },
+    
     // Default URL for the model's representation on the server -- if you're
     // using Backbone's restful methods, override this to change the endpoint
     // that will be called.
@@ -1054,6 +1069,7 @@
     },
     // The value returned during the last failed validation.
     validationError: null,
+    
     // Run validation against the next complete set of model attributes,
     // returning `true` if all is well. Otherwise, fire an `"invalid"` event.
     _validate: function(attrs, options) {
@@ -1121,6 +1137,7 @@
         $: function(selector) {
       return this.$el.find(selector);
     },
+    
     // pairs. Callbacks will be bound to the view, with `this` set properly.
     // Uses event delegation for efficiency.
     // Omitting the selector binds the event to `this.el`.
@@ -1149,6 +1166,7 @@
     // Initialize is an empty function by default. Override it with your own
     // initialization logic.
     initialize: function(){},
+    
     // Remove this view by taking the element out of the DOM, and removing any
     // applicable Backbone.Events listeners.
     remove: function() {
@@ -1162,6 +1180,8 @@
     render: function() {
       return this;
     },
+    
+    
     // Change the view's element (`this.el` property), including event
     // re-delegation.
     setElement: function(element, delegate) {
@@ -1189,6 +1209,7 @@
       _.extend(this, _.pick(options, viewOptions));
       this.options = options;
     },
+    
     // Ensure that the View has a DOM element to render into.
     // If `this.el` is a string, pass it through `$()`, take the first
     // matching element, and re-assign it to `el`. Otherwise, create
@@ -1308,6 +1329,8 @@
         // Initialize is an empty function by default. Override it with your own
     // initialization logic.
     initialize: function(){},
+    
+    
     route: function(route, name, callback) {
       if (!_.isRegExp(route)) route = this._routeToRegExp(route);
       if (_.isFunction(name)) {
@@ -1325,6 +1348,7 @@
       });
       return this;
     },
+    
     // Bind all defined routes to `Backbone.history`. We have to reverse the
     // order of the routes here to support behavior where the most general
     // routes can be defined at the bottom of the route map.
