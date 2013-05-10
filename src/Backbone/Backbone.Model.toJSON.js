@@ -1,1 +1,1 @@
-    // Return a copy of the model's `attributes` object.    toJSON: function(options) {      return _.clone(this.attributes);    }
+    <$ Push(Config.Backbone.Underscore.Require,"src/Underscore/_.clone.js") $>    // Return a copy of the model's `attributes` object.    toJSON: function(options) {      return _.clone(this.attributes);    }

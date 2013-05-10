@@ -1,1 +1,1 @@
-    // Get the HTML-escaped value of an attribute.    escape: function(attr) {      return _.escape(this.get(attr));    }
+    <$ Push(Config.Backbone.Underscore.Require,"src/Underscore/_.escape.js") $>    // Get the HTML-escaped value of an attribute.    escape: function(attr) {      return _.escape(this.get(attr));    }

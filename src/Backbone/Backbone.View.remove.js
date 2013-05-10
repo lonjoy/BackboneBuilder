@@ -1,1 +1,1 @@
-    <$ Require("src/Backbone/Backbone.View.stopListening.js") $>    // Remove this view by taking the element out of the DOM, and removing any    // applicable Backbone.Events listeners.    remove: function() {      this.$el.remove();      this.stopListening();      return this;    }
+    // Remove this view by taking the element out of the DOM, and removing any    // applicable Backbone.Events listeners.    remove: function() {      this.$el.remove();      this.stopListening();      return this;    }

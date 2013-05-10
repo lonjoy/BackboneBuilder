@@ -1,1 +1,1 @@
-    // Get all of the attributes of the model at the time of the previous    // `"change"` event.    previousAttributes: function() {      return _.clone(this._previousAttributes);    }
+    <$ Push(Config.Backbone.Underscore.Require,"src/Underscore/_.clone.js") $>    // Get all of the attributes of the model at the time of the previous    // `"change"` event.    previousAttributes: function() {      return _.clone(this._previousAttributes);    }

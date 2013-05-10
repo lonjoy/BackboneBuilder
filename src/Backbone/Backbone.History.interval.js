@@ -1,1 +1,1 @@
-    <$ if(("IE" in Config.Backbone.BrowserNotSupport) === false){ $>    // The default interval to poll for hash changes, if necessary, is    // twenty times a second.    interval: 50    <$ } $>
+    <$ if(Config.Backbone.BrowserSupport['IE']){ $>    // The default interval to poll for hash changes, if necessary, is    // twenty times a second.    interval: 50    <$ } $>
